@@ -57,14 +57,20 @@ function generateSquares(content) {
 //     console.log(flag + ' non è incluso ' + randomNmb)
 // };
 
-let blacklist = [1,3,5,7];
-let randomNmb = Math.floor(Math.random() * (7 - 1) ) + 1;
-let flag = false;
+let mylist = [1,3]
+console.log(generateUniqueRandomnumbers (1, 6, mylist))
 
-while (flag === false) {
-    randomNmb = Math.floor(Math.random() * (7 - 1) ) + 1;
-    if (blacklist.includes(randomNmb) === false){
-        flag = true;
+function generateUniqueRandomnumbers (min, max, blacklist) {
+
+    let randomNotincluded;
+    let flag = false;
+
+    while (flag === false) {
+        randomNotincluded = Math.floor(Math.random() * (max - min + 1) ) + min
+        console.log('nel ciclo' + randomNotincluded)
+        if (blacklist.includes(randomNotincluded) === false){
+            flag = true;
+        }
     }
+    return randomNotincluded;
 }
-console.log('se funziona ' + randomNmb + 'non sta in blacklist')
