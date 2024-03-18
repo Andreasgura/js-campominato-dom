@@ -1,0 +1,17 @@
+.as-debug {
+    border: 1px solid red;
+}
+
+.square {
+    width: calc(100% / 10);
+    aspect-ratio: 1 / 1;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.clicked {
+    background-color: blue;
+    color: white;
+}
