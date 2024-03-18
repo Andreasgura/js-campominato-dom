@@ -47,10 +47,12 @@ function generateSquares(content) {
     return newElement;
 }
 
-function isOdd(n) {
-    if (n % 2 === 0) {
-        return true
-    } else {
-        return false
-    }
+let blacklist = [1,3,5,7];
+let randomNmb = Math.floor(Math.random() * (7 - 1) ) + 1;
+let flag = false;
+if (blacklist.includes(randomNmb)){
+    console.log('è incluso' + randomNmb)
+} else {
+    flag = true
+    console.log(flag + ' non è incluso ' + randomNmb)
 }
