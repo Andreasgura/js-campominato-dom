@@ -16,7 +16,7 @@ creo un div.grid   .d-flex-justify-coontent-center.align-items-center
 dentro il div inserisco N volte una fz che mi genera un quadrato. ogni quadrato ha all'interno, sempre al centro (quindi aggiungo classi), un numero (o in generale qualcosa di scritto)
 
 */
-
+/*
 
 let elBtnPlay = document.getElementById('playbtn')
 let elBoxContainer = document.getElementById('box-container')
@@ -46,13 +46,25 @@ function generateSquares(content) {
     newElement.innerHTML = `<span>${content}<span>`;
     return newElement;
 }
+*/
+// let blacklist = [1,3,5,7];
+// let randomNmb = Math.floor(Math.random() * (7 - 1) ) + 1;
+// let flag = false;
+// if (blacklist.includes(randomNmb)){
+//     console.log('è incluso' + randomNmb)
+// } else {
+//     flag = true
+//     console.log(flag + ' non è incluso ' + randomNmb)
+// };
 
 let blacklist = [1,3,5,7];
 let randomNmb = Math.floor(Math.random() * (7 - 1) ) + 1;
 let flag = false;
-if (blacklist.includes(randomNmb)){
-    console.log('è incluso' + randomNmb)
-} else {
-    flag = true
-    console.log(flag + ' non è incluso ' + randomNmb)
+
+while (flag === false) {
+    randomNmb = Math.floor(Math.random() * (7 - 1) ) + 1;
+    if (blacklist.includes(randomNmb) === false){
+        flag = true;
+    }
 }
+console.log('se funziona ' + randomNmb + 'non sta in blacklist')
