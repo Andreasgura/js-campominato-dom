@@ -33,20 +33,21 @@ function play() {
     for (let index = 0; index < 100; index++) {
         boxes = generateSquares(index + 1);
         elBoxContainer.appendChild(boxes);
-        boxes.addEventListener('click', checkBomb, {once: true} );
-        function checkBomb () {
+        let bomb = false;
+        boxes.addEventListener('click', function () {
             if(arrayBombs.includes(index + 1)) {
                 this.classList.add('end-game')
                 console.log('hai perso')
-                boxes.disabled = true;
-                boxes.removeEventListener('click', checkBomb );
+                bomb = true
             } else {
                 this.classList.add('clicked')
                 console.log(arrayBombs)
             }
-            
             elBoxContainer.appendChild(boxes);
-        };
+            if (bomb === true) {
+                return
+            }
+        }, {once: true} );
 
     }
 
