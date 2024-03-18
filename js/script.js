@@ -19,7 +19,9 @@ dentro il div inserisco N volte una fz che mi genera un quadrato. ogni quadrato 
 
 let elBtnPlay = document.getElementById('playbtn');
 let elBoxContainer = document.getElementById('box-container');
-elBtnPlay.addEventListener('click', function () {
+elBtnPlay.addEventListener('click', play );
+
+function play() {
     elBoxContainer.innerHTML = '';
     let arrayBombs = [];
     console.log('vuoto' + arrayBombs)
@@ -31,22 +33,25 @@ elBtnPlay.addEventListener('click', function () {
     for (let index = 0; index < 100; index++) {
         boxes = generateSquares(index + 1);
         elBoxContainer.appendChild(boxes);
-        boxes.addEventListener('click', function () {
+        boxes.addEventListener('click', checkBomb, {once: true} );
+        function checkBomb () {
             if(arrayBombs.includes(index + 1)) {
                 this.classList.add('end-game')
                 console.log('hai perso')
+                boxes.disabled = true;
+                boxes.removeEventListener('click', checkBomb );
             } else {
                 this.classList.add('clicked')
                 console.log(arrayBombs)
             }
             
             elBoxContainer.appendChild(boxes);
-        });
+        };
 
     }
 
 
-});
+};
 
 
 
